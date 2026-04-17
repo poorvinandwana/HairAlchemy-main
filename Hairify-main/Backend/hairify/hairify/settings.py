@@ -9,11 +9,8 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import django
-#django.setup()
 from pathlib import Path
 
-from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -25,7 +22,6 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("GEMINI:", os.getenv("GEMINI_API_KEY"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -98,11 +94,17 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 import dj_database_url
-import os
 
-DATABASES = {
-    'default': dj_database_url.parse(os.getenv("POSTGRE_URI"))
-}
+POSTGRE_URI = os.getenv("POSTGRE_URI")
+if POSTGRE_URI:
+    DATABASES = {"default": dj_database_url.parse(POSTGRE_URI)}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation

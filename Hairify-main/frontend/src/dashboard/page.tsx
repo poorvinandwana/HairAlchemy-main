@@ -10,41 +10,39 @@ import {
 } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
 import formatRelativeTime from "@/utils/formatRelativeTime";
-import axios from "axios";
 import Recordviewer from "@/components/Recordviewer";
-import LoaderRipple from "@/components/LoaderRipple";
-import { useDataContext } from "@/context/dataContext";
-import { useRouter } from "next/navigation";
 
 interface Record {
-  timestamp: string;
-  analysis: string;
+  created_at: string;
+  image_url: string;
+  report: string;
 }
 
 let dummyData = [
   {
-    timestamp: "2024-03-28T16:02:47.261Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
+    created_at: "2024-03-28T16:02:47.261Z",
+    image_url: "",
+    report: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
   },
   {
-    timestamp: "2024-03-28T16:05:16.526Z",
-    analysis:
+    created_at: "2024-03-28T16:05:16.526Z",
+    image_url: "",
+    report:
       "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuurjk vbdjl bsivri ivse iguesgud ivgrusod housur tugohg tuorsd guotrhod orhobrou vor tdv otvguo",
   },
   {
-    timestamp: "2024-03-28T15:55:41.463Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
+    created_at: "2024-03-28T15:55:41.463Z",
+    image_url: "",
+    report: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
   },
   {
-    timestamp: "2024-03-28T16:03:56.152Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
+    created_at: "2024-03-28T16:03:56.152Z",
+    image_url: "",
+    report: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
   },
 ];
 
 export default function Dashboard() {
-  const { authState } = useDataContext();
-  const router = useRouter();
-
   return (
     <>
       {/* {authState === "loading" && (
@@ -122,12 +120,12 @@ function DashboardInner() {
                 records.map((row, i) => (
                   <TableRow key={i} onClick={() => handleView(row)}>
                     <TableCell>
-                      {formatRelativeTime(row.timestamp)?.toString()}
+                      {formatRelativeTime(row.created_at)?.toString()}
                     </TableCell>
                     <TableCell>
-                      {row.analysis.length > 100
-                        ? `${row.analysis?.substring(0, 99)} ...`
-                        : row.analysis}
+                      {row.report.length > 100
+                        ? `${row.report?.substring(0, 99)} ...`
+                        : row.report}
                     </TableCell>
                   </TableRow>
                 ))}

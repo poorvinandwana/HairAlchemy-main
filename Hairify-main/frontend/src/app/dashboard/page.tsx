@@ -17,30 +17,10 @@ import { useDataContext } from "@/context/dataContext";
 import { useRouter } from "next/navigation";
 
 interface Record {
-  timestamp: string;
-  analysis: string;
-
+  created_at: string;
+  image_url: string;
+  report: string;
 }
-
-let dummyData = [
-  {
-    timestamp: "2024-03-28T16:02:47.261Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
-  },
-  {
-    timestamp: "2024-03-28T16:05:16.526Z",
-    analysis:
-      "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuurjk vbdjl bsivri ivse iguesgud ivgrusod housur tugohg tuorsd guotrhod orhobrou vor tdv otvguo",
-  },
-  {
-    timestamp: "2024-03-28T15:55:41.463Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
-  },
-  {
-    timestamp: "2024-03-28T16:03:56.152Z",
-    analysis: "fdvbi uiv trdsufibirhtiurudbriu biuvb r ir ibriub iuur",
-  },
-];
 
 export default function Dashboard() {
   const { authState } = useDataContext();
@@ -60,7 +40,7 @@ export default function Dashboard() {
 }
 
 function DashboardInner() {
-  const [records, setRecords] = useState<any[]>([]);
+  const [records, setRecords] = useState<Record[]>([]);
   const [curState, setCurState] = useState<string>("idle"); //should be "loading" in prod
   const dialogTrigger = useRef<HTMLButtonElement>(null);
   const [dialogData, setDialogData] = useState<Record | null>(null);

@@ -308,23 +308,15 @@ function ChatpageInner() {
           body: JSON.stringify({ message }),
         }
       );
-      // Check if the response is ok
       const text = await response.text();
 
-if (!response.ok) {
-  console.error("Backend error:", text);
-}
+      if (!response.ok) {
+        console.error("Backend error:", text);
+        setChat((prev) => [...prev, { message: text || "Backend error", own: false }]);
+        return;
+      }
 
-setChat((prev) => [
-  ...prev,
-  { message: text, own: false }
-]);
-    
-
-setChat((prev) => [
-  ...prev,
-  { message: text, own: false }
-]);
+      setChat((prev) => [...prev, { message: text, own: false }]);
     } catch (error) {
       console.error("Error fetching streaming data:", error);
     }
@@ -346,16 +338,17 @@ setChat((prev) => [
         }
       );
       
+      const text = await response.text();
 
-if (!response.ok) {
-  console.error("Backend error:", text);
-}
+      if (!response.ok) {
+        console.error("Backend error:", text);
+        setChat((prev) => [
+          ...prev,
+          { message: text || "Failed to delete chat history.", own: false },
+        ]);
+        return;
+      }
 
-setChat((prev) => [
-  ...prev,
-  { message: text, own: false }
-]);
-      
       setChat([]);
     } catch (error) {
       console.error("Error deleting chat history:", error);

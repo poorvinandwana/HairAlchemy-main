@@ -8,16 +8,15 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@radix-ui/react-label";
 import React from "react";
-
-interface Record {
-  timestamp: string;
-  analysis: string;
-}
 import Image from "next/image";
 
 const Recordviewer = React.forwardRef(
   (
-    { data }: { data: any | null },
+    {
+      data,
+    }: {
+      data: { created_at: string; image_url: string; report: string } | null;
+    },
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     return (
@@ -40,8 +39,13 @@ const Recordviewer = React.forwardRef(
                   </div>
                   <Label className="my-1 text-lg">Image</Label>
                   <div className="my-1">
-                    {/* <Image src={data.image_url} height={200} width={200} alt="image" /> */}
-                    <img src={data.image_url} height={200} width={200} alt="image" />
+                    <Image
+                      src={data.image_url}
+                      height={200}
+                      width={200}
+                      alt="image"
+                      unoptimized
+                    />
                   </div>
 
                   <Label className="my-1 text-lg">Analysis</Label>
