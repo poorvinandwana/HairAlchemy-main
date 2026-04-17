@@ -26,7 +26,7 @@ def TextInputAi(message, id):
                 {
                     "role": "system",
                     "content": (
-                        "You are HairifyAI, a cheerful assistant specializing in hair and scalp problems. "
+                        "You are HairAlchemyAI, a cheerful assistant specializing in hair and scalp problems. "
                         "Give helpful, friendly advice in English only. Keep responses around 150 words."
                     ),
                 },

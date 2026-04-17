@@ -51,7 +51,7 @@ def analyze_image_with_openrouter(image_url: str) -> str:
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "HTTP-Referer": "https://hairify.app",
-        "X-Title": "Hairify",
+        "X-Title": "HairAlchemy",
     }
 
     # IMPORTANT: text must come BEFORE image_url in the content array

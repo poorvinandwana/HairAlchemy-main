@@ -1,6 +1,6 @@
 
 ![Harify](https://camo.githubusercontent.com/dd5e3080a7adc2ead8f86cbbd6577cee0a38439c0ebf195021ce41587b0a405f/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f313430302f312a633459675258595161794f5657785633376f757272772e706e67)
-<div align="center"><h1>Hairify</h1> <h2>one solution for all your hair problems</h2>
+<div align="center"><h1>HairAlchemy</h1> <h2>one solution for all your hair problems</h2>
 </div>
 <table align="center">
     <thead align="center">

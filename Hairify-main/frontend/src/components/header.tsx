@@ -18,7 +18,7 @@ function Logo() {
     <div className="m-2 flex">
       <Link href="/" className="flex gap-2">
         <Image src={icon} alt="Icon" className="h-full w-auto" />
-        <div className="py-3 text-xl hidden md:block">Hairify</div>
+        <div className="py-3 text-xl hidden md:block">HairAlchemy</div>
       </Link>
     </div>
   );

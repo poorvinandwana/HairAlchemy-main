@@ -7,7 +7,7 @@ import { DataProvider } from "@/context/dataContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hairify",
+  title: "HairAlchemy",
   description: "A one stop solution to all your hair problems",
 };
 

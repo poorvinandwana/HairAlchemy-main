@@ -71,7 +71,7 @@ function SignupInner() {
         <div className="text-xs text-red-900 h-2">{error}</div>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign Up to your Hairify account
+            Sign Up to your <HairAlchemy></HairAlchemy> account
           </h2>
         </div>
 
